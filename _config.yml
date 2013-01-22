@@ -1,0 +1,7 @@
+auto:           true
+server:         true
+server_port:    8000
+source:         src
+destination:    site
+permalink:     	slide/:title
+

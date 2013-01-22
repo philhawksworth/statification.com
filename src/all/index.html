@@ -1,0 +1,12 @@
+---
+title: All slides
+layout: base
+---
+
+<ul>
+{% for slide in site.posts %}
+	<div class="slide">
+		{{ slide.content }}
+	</div>
+{% endfor %}
+</ul>
