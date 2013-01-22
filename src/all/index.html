@@ -1,12 +1,10 @@
 ---
-title: All slides
+title: Outline
 layout: base
 ---
 
-<ul>
-{% for slide in site.posts %}
-	<div class="slide">
-		{{ slide.content }}
-	</div>
+{% for section in site.posts %}
+<div class="section {{section.class}}">
+	{{ section.content }}
+</div>
 {% endfor %}
-</ul>

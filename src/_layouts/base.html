@@ -6,15 +6,15 @@
 	<link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-	<h1>{{ page.title }}</h1>
-
-
-	{{ content }}
-
-	<div class="footer">
+	<div class="header">
 		<a href="/">home</a>
 		<a href="/slides">slides</a>
 		<a href="/all">show all</a>
+	</div>
+	<div class="stage">
+		<div class="section {{page.class}}">
+		{{ content }}
+		</div>
 	</div>
 	<script src="/js/jquery.min.js"></script>
 	<script src="/js/statification.js"></script>
