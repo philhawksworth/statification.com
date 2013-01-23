@@ -1,0 +1,5 @@
+<ol>
+{% for slide in site.posts reversed %}
+	<li><a href="/{{slide.url}}">{{ slide.title }} </a></li>
+{% endfor %}
+</ol>

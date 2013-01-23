@@ -1,0 +1,10 @@
+---
+title: Outline
+layout: base
+---
+
+{% for section in site.posts reversed %}
+<div class="section {{section.class}}">
+	{{ section.content }}
+</div>
+{% endfor %}
