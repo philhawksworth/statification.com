@@ -1,24 +1,35 @@
 ---
 ---
 
+/*
+    Define our global, and slide deck
+*/
 var stftn = {};
 stftn.slides = [];
 stftn.currentSlide = -1;
 {% for slide in site.posts reversed %} stftn.slides.push('/{{ slide.id }}/'); {% endfor %}
 
 
-// giddy up.
+/*
+    Ready? Giddy up!
+*/
 $(function() {
     stftn.init();
 });
 
 
+/*
+    Set everything up.
+*/
 stftn.init = function() {
     stftn.findPlace();
     stftn.addEventListners();
 };
 
 
+/*
+    Create event handlers.
+*/
 stftn.addEventListners = function() {
 
     // control slides with keys
@@ -43,6 +54,9 @@ stftn.addEventListners = function() {
 };
 
 
+/*
+    Advance the slide presentation
+*/
 stftn.next = function() {
     stftn.currentSlide++;
     if(stftn.currentSlide >= stftn.slides.length) {
@@ -53,6 +67,9 @@ stftn.next = function() {
 };
 
 
+/*
+    Regress the slide presentation
+*/
 stftn.prev = function() {
     stftn.currentSlide--;
     if(stftn.currentSlide <= -1) {
@@ -63,13 +80,17 @@ stftn.prev = function() {
 };
 
 
-// determine our place in the slides array based on the url
+/*
+    determine our place in the slides array based on the url
+*/
 stftn.findPlace = function() {
      stftn.currentSlide = stftn.slides.indexOf(window.location.pathname);
 };
 
 
-// display a given slide.
+/*
+    display a given slide.
+*/
 stftn.getSlide = function(i) {
     var url = stftn.slides[i];
     if (history.pushState ) {
