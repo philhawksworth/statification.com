@@ -3,5 +3,5 @@ server:         true
 server_port:    8000
 source:         src
 destination:    _site
-permalink:     	slide/:title
+permalink:      slide/:title
 

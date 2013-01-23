@@ -4,7 +4,7 @@
 var stftn = {};
 stftn.slides = [];
 stftn.currentSlide = -1;
-{% for slide in site.posts reversed %} stftn.slides.push('{{ slide.id }}'); {% endfor %}
+{% for slide in site.posts reversed %} stftn.slides.push('/{{ slide.id }}/'); {% endfor %}
 
 
 // giddy up.
@@ -14,6 +14,7 @@ $(function() {
 
 
 stftn.init = function() {
+    stftn.findPlace();
     stftn.addEventListners();
 };
 
@@ -62,15 +63,24 @@ stftn.prev = function() {
 };
 
 
-stftn.getSlide = function(i) {
+// determine our place in the slides array based on the url
+stftn.findPlace = function() {
+     stftn.currentSlide = stftn.slides.indexOf(window.location.pathname);
+};
 
-    var url = "/" + stftn.slides[i] + "/";
+
+// display a given slide.
+stftn.getSlide = function(i) {
+    var url = stftn.slides[i];
     if (history.pushState ) {
-        $('.stage').load(url +' .section');
+        $('.stage').fadeOut(500, function(){
+            $('.stage').load(url +' .section', function(){
+                $('.stage').fadeIn(200);
+            });
+        });
         history.pushState(undefined, undefined, url);
     } else {
         window.location.pathname = url;
     }
-
 };
 
