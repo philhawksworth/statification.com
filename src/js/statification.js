@@ -64,7 +64,7 @@ stftn.prev = function() {
 
 stftn.getSlide = function(i) {
 
-    var url = "/" + stftn.slides[i];
+    var url = "/" + stftn.slides[i] + "/";
     if (history.pushState ) {
         $('.stage').load(url +' .section');
         history.pushState(undefined, undefined, url);
