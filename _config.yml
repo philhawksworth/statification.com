@@ -1,3 +1,4 @@
+safe:           true
 auto:           true
 server:         true
 server_port:    8000
