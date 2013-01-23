@@ -34,7 +34,7 @@ stftn.addEventListners = function() {
 
     // control slides with keys
     $(document).on( "keydown", function(event){
-        event.preventDefault();
+
         var action = {
             32: stftn.next, //space
             39: stftn.next, //right arrow
@@ -44,6 +44,7 @@ stftn.addEventListners = function() {
 
         console.log("key", event.which);
         if(action[event.which]) {
+            event.preventDefault();
             action[event.which].call();
         }
     });
@@ -75,7 +76,7 @@ stftn.next = function() {
 stftn.prev = function() {
     stftn.currentSlide--;
     if(stftn.currentSlide <= -1) {
-        stftn.currentSlide = - 1;
+        stftn.currentSlide = -1;
         return;
     }
     stftn.getSlide(stftn.currentSlide);

@@ -38,7 +38,7 @@ h2 {
 }
 
 p {
-	width:60%;
+	width:80%;
 	margin: 2em auto;
 	font-size:1.8em;
 	line-height: 1.2;
@@ -71,7 +71,7 @@ p {
 
 
 .section ul, .section ol {
-	width:60%;
+	width:80%;
 	margin: 1em auto;
 	padding:0;
 	font-size: 1.6em;
@@ -110,6 +110,32 @@ p {
 	/*background-image: radial-gradient(50% 50%, ellipse farthest-side, #f20c42, #000000 100%)*/
 }
 
+.section blockquote {
+	display: block;
+	font-size: 2.6em
+}
+
+	.section div {
+		background-color: rgba(0,0,0,0.2);
+		border-radius: 10px;
+		padding:1em;
+	}
+	.section footer {
+		text-align: right;
+	}
+
+	.section footer a {
+		background-color: transparent;
+	}
+	.section footer .fin {
+		display:inline-block;
+		height: 0px;
+		border-top: solid 1.5em rgba(0,0,0,0.2);
+		border-left: solid 1em transparent;
+		border-right: solid 1em transparent;
+		border-bottom: solid 0 transparent;
+		margin-right: 3em;
+	}
 
 
 /*
