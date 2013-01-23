@@ -3,7 +3,7 @@ title: Outline
 layout: base
 ---
 
-{% for section in site.posts %}
+{% for section in site.posts reversed %}
 <div class="section {{section.class}}">
 	{{ section.content }}
 </div>

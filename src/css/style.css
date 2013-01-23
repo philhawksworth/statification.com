@@ -34,11 +34,11 @@ h2 {
 	font-size:3em;
 	margin:0.1em 0 0;
 	padding:0;
-	line-height:0.9;
+	line-height:1;
 }
 
 p {
-	width:60%;
+	width:80%;
 	margin: 2em auto;
 	font-size:1.8em;
 	line-height: 1.2;
@@ -71,18 +71,18 @@ p {
 
 
 .section ul, .section ol {
-	width:60%;
+	width:80%;
 	margin: 1em auto;
 	padding:0;
-	font-size: 1.8em;
+	font-size: 1.6em;
 	text-align: left;
 }
 .section ul {
 	list-style: none;
 }
 .section li {
-	line-height: 1.4em;
-	padding-bottom:0.8em;
+	line-height: 1.3em;
+	padding-bottom:0.3em;
 }
 
 .section a {
@@ -100,7 +100,7 @@ p {
 
 
 .section {
-	padding:100px;
+	padding:4em 3em;
 	margin:2px 0;
 	background-color:#fff;
 	/*background-image: -moz-radial-gradient(50% 50%, ellipse farthest-side, #f20c42, #000000 100%);*/
@@ -110,6 +110,63 @@ p {
 	/*background-image: radial-gradient(50% 50%, ellipse farthest-side, #f20c42, #000000 100%)*/
 }
 
+.section img.fullscreen {
+	width:100%;
+	padding:0;
+	margin:0;
+}
+
+.section blockquote {
+	display: block;
+	font-size: 2.6em
+}
+
+	.section blockquote div {
+		background-color: #fff;
+		border-radius: 10px;
+		padding:1em;
+	}
+
+	.section blockquote.big div {
+		font-size: 1.8em
+	}
+
+	.section blockquote footer {
+		text-align: right;
+		font-size: 0.8em;
+	}
+
+	.section blockquote footer a {
+		background-color: transparent;
+	}
+	.section blockquote footer a:after {
+		content:"";
+		display:inline-block;
+		height: 0px;
+		border-top: solid 1.5em #fff;
+		border-left: solid 1em transparent;
+		border-right: solid 1em transparent;
+		border-bottom: solid 0 transparent;
+		margin-right: 3em;
+	}
+
+
+/*
+	for narrow screens
+*/
+@media all and (max-width: 760px) {
+
+	body {
+		font-size: 0.8em;
+	}
+}
+
+@media all and (max-width: 500px) {
+	body {
+		font-size: 0.6em;
+	}
+}
+
 
 
 /*
@@ -117,14 +174,16 @@ p {
 */
 
 {% for slide in site.posts %}
-
-	.section.{{ slide.class }} {
-		background-color: #{{ slide.bgcolor }};
-		color: #{{ slide.textcolor }};
-	}
-
-	.section.{{ slide.class }} a {
-		color: #{{ slide.textcolor }};
-	}
-
+.section.{{ slide.class }} {
+	background-color: #{{ slide.bgcolor }};
+	color: #{{ slide.textcolor }};
+}
+.section.{{ slide.class }} a {
+	color: #{{ slide.textcolor }};
+}
+.section.{{ slide.class }} blockquote {
+	color: #{{ slide.bgcolor }};
+	text-shadow: -0px 1px 1px rgba(0, 0, 0, 0.4);
+}
 {% endfor %}
+

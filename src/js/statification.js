@@ -33,15 +33,18 @@ stftn.init = function() {
 stftn.addEventListners = function() {
 
     // control slides with keys
-    $(document).on( "keypress", function(event){
-        event.preventDefault();
+    $(document).on( "keydown", function(event){
+
         var action = {
             32: stftn.next, //space
-            46: stftn.next,
-            44: stftn.prev
+            39: stftn.next, //right arrow
+            37: stftn.prev, //left arrow
+            38: stftn.prev  //up arrow
         };
+
         console.log("key", event.which);
         if(action[event.which]) {
+            event.preventDefault();
             action[event.which].call();
         }
     });
@@ -73,7 +76,7 @@ stftn.next = function() {
 stftn.prev = function() {
     stftn.currentSlide--;
     if(stftn.currentSlide <= -1) {
-        stftn.currentSlide = - 1;
+        stftn.currentSlide = -1;
         return;
     }
     stftn.getSlide(stftn.currentSlide);
@@ -94,9 +97,9 @@ stftn.findPlace = function() {
 stftn.getSlide = function(i) {
     var url = stftn.slides[i];
     if (history.pushState ) {
-        $('.stage').fadeOut(500, function(){
+        $('.stage').fadeOut(300, function(){
             $('.stage').load(url +' .section', function(){
-                $('.stage').fadeIn(200);
+                $('.stage').fadeIn(100);
             });
         });
         history.pushState(undefined, undefined, url);
