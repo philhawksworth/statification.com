@@ -22,9 +22,10 @@ stftn.addEventListners = function() {
 
     // control slides with keys
     $(document).on( "keypress", function(event){
+        event.preventDefault();
         var action = {
             32: stftn.next, //space
-            33: stftn.next,
+            46: stftn.next,
             44: stftn.prev
         };
         console.log("key", event.which);
@@ -33,7 +34,7 @@ stftn.addEventListners = function() {
         }
     });
 
-    // listen for broswer forwd/back buttons
+    // listen for browser forwd/back buttons
     window.onpopstate = function(event){
         var url = window.location.pathname;
         $('.stage').load(url +' .section');
