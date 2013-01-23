@@ -73,16 +73,29 @@ p {
 .section ul, .section ol {
 	width:60%;
 	margin: 1em auto;
+	padding:0;
 	font-size: 1.8em;
 	text-align: left;
 }
 .section ul {
 	list-style: none;
 }
+.section li {
+	line-height: 1.4em;
+	padding-bottom:0.8em;
+}
 
 .section a {
-	text-decoration: underline;
+	text-decoration: none;
 	color:#222;
+	padding: 0.2em 0.2em 0.1em;
+	background-color: rgba(0,0,0,0.2);
+	border-radius: 4px;
+	line-height: 1;
+}
+
+.section a:hover {
+	background-color: rgba(0,0,0,0.4);
 }
 
 
